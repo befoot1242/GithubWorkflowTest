@@ -10,13 +10,13 @@ on:
       - "pro1/**"
   workflow_dispatch:
     inputs:
-      actionType:
-        description: "アクション"
-        required: true
-        default: "Test"
-        type: choice
-        options:
-          - "Test"
+      # actionType:
+      #   description: "アクション"
+      #   required: true
+      #   default: "Test"
+      #   type: choice
+      #   options:
+      #     - "Test"
       actionEnvironment:
         description: "環境"
         required: false
