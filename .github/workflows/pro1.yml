@@ -8,10 +8,29 @@ on:
   pull_request:
     paths:
       - "pro1/**"
-
+  workflow_dispatch:
+    inputs:
+      actionType:
+        description: "アクション"
+        required: true
+        default: "Test"
+        type: choice
+        options:
+          - "Test"
+      actionEnvironment:
+        description: "環境"
+        required: false
+        type: choice
+        options:
+          - "dev"
+          - "prd"
 jobs:
   pro1:
     runs-on: ubuntu-latest
     steps:
       - name: echo
         run: echo "helloworld"
+
+      - name: echo
+        if: ${{ (github.event_name == 'push' || github.event_name == 'workflow_dispatch' && github.actionEnvironment == 'dev') }}
+        run: echo "done"
