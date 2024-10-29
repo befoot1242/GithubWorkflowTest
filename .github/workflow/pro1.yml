@@ -13,4 +13,4 @@ jobs:
   pro1:
     steps:
       - name: echo
-        run: "helloworld"
+        run: echo "helloworld"
