@@ -1,0 +1,17 @@
+name: pro1
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - "pro1/**"
+  pull_request:
+    paths:
+      - "pro1/**"
+
+jobs:
+  pro1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo
+        run: echo "helloworld"
