@@ -29,8 +29,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: echo helloworld
-        run: echo "helloworld" ${{github.event_name}} ${{github.actionEnvironment}}
+        run: echo "helloworld" ${{github.event_name}} ${{github.event.inputs.actionEnvironment}}
 
       - name: echo done
-        if: ${{ (github.event_name == 'push' || github.event_name == 'workflow_dispatch' && github.actionEnvironment == 'dev') }}
+        if: ${{ (github.event_name == 'push' || github.event_name == 'workflow_dispatch' && github.event.inputs.actionEnvironment == 'dev') }}
         run: echo "done"
